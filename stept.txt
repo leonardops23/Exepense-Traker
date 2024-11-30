@@ -1,0 +1,4 @@
+- Como separar las carpetas entre ellas la logica de negocio
+1.- Trabajomos en la interfaz principal.
+2.- Guardar los datos
+3.- Crud - con los datos
