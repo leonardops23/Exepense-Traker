@@ -6,4 +6,4 @@ views = Blueprint('views', __name__)
 @views.route('/')
 def home():
     fruits = ['apple', 'banana', 'melon', 'watermelon']
-    return 'Hlo'
+    return render_template('index.html', fruits=fruits)
