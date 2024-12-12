@@ -1,10 +1,12 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/login')
+@auth.route('/login', methods=['GET', 'POST'])
 def login():
+    data = request.form
+    print(data)
     return render_template('login.html', text="Helo")
 
 
@@ -13,6 +15,6 @@ def register():
     return render_template('register.html')
 
 
-@auth.route('/logout')
+@auth.route('/logout', methods=['GET', 'POST'])
 def logout():
     return 'logout'
