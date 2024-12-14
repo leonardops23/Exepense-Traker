@@ -1,20 +1,20 @@
 from flask import Flask
-import os
-from flask_sqlalchemy import SQLAlchemy
+from .config import Config
+from .extensions import db, migrate, login_manager
 
-db = SQLAlchemy()
+def create_app(config_class=Config):
+    app = Flask(__name__)
+    app.config.from_object(config_class)
 
-def create_app(testing_config=None):
-    app = Flask(__name__, instance_relative_config=True)
-
-    app.config['SECRET_KEY'] = 'asdjfklj!@!2ssdkj'
-
+    # Initialize extensions
     db.init_app(app)
+    migrate.init_app(app, db)
+    login_manager.init_app(app)
 
-    from .views import views
-    from .auth import auth
-
-    app.register_blueprint(views, url_prefix='/')
-    app.register_blueprint(auth)
+    # Register blueprints
+    from .routes import auth, tracker, api
+    app.register_blueprint(auth.bp)
+    app.register_blueprint(tracker.bp)
+    app.register_blueprint(api.bp)
 
     return app

@@ -1,0 +1,34 @@
+## Project Structure
+tracker_manager/
+├── app/
+│   ├── __init__.py
+│   ├── models.py
+│   ├── forms.py
+│   ├── routes/
+│   │   ├── __init__.py
+│   │   ├── auth.py
+│   │   ├── tracker.py
+│   │   ├── api.py
+│   ├── templates/
+│   │   ├── base.html
+│   │   ├── auth/
+│   │   │   ├── login.html
+│   │   │   ├── register.html
+│   │   ├── tracker/
+│   │   │   ├── dashboard.html
+│   │   │   ├── create_tracker.html
+│   ├── static/
+│   │   ├── css/
+│   │   ├── js/
+│   ├── extensions.py
+│   ├── services/
+│   │   ├── tracker_service.py
+│   │   ├── user_service.py
+│   ├── utils/
+│   ├── config.py
+├── migrations/
+├── tests/
+├── run.py
+├── requirements.txt
+├── .env
+└── README.md

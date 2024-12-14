@@ -11,12 +11,12 @@ def login():
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        username = request.form.get('user1')
+        name = request.form.get('user1')
         email = request.form.get('email')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
-        if len(username) < 2:
+        if len(name) < 2:
             flash('Username must be longer than 1 character.', 'danger')
         elif len(email) == 0:
             flash('please fill in the fields', 'danger')
